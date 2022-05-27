@@ -10,3 +10,5 @@ class Room:
     def room_has_capacity(self):
         return len(self.room_guest_list) < self.max_allowed_guest
 
+    def guest_has_entry_fee(self, guest):
+        return guest.wallet > self.room_entry_fee

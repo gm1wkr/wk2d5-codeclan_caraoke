@@ -21,6 +21,21 @@ class TestRoom(unittest.TestCase):
 
     def test_does_room_have_capacity(self):
         self.assertEqual(True, self.room_1.room_has_capacity())
+        
+    # def test_does_room_have_capacity__False(self):
+    #     self.room_full = Room("ChokaBlock")
+    #     self.room_full.max_allowed_guest = 0
+    #     self.assertEqual(True, self.room_1.room_has_capacity())
+
+
+    def test_guest_has_entry_fee__true(self):
+        self.assertEqual(True, self.room_1.guest_has_entry_fee(self.guest_1))
+
+    def test_guest_has_entry_fee__False(self):
+        self.guest_no_money = Guest("Tom Paris", 2, self.song_1)
+        self.assertEqual(False, self.room_1.guest_has_entry_fee(self.guest_no_money))
+
+
 
     def test_room_check_in_guest__ok(self):
         # check does room have capacity for another
