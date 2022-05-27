@@ -13,3 +13,6 @@ class TestGuest(unittest.TestCase):
 
     def test_guest_has_wallet(self):
         self.assertEqual(10, self.guest_1.wallet)
+    
+    def test_guest_has_favourite_song(self):
+        self.assertEqual("Time Warp", self.guest_1.favourite_song)
