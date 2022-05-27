@@ -20,3 +20,7 @@ class TestSong(unittest.TestCase):
     def test_song_has_playcount(self):
         self.song_2.play_count = 10
         self.assertEqual(10, self.song_2.play_count)
+
+    def test_increase_song_play_count(self):
+        self.song_3.increase_play_count(2)
+        self.assertEqual(2, self.song_3.play_count)
