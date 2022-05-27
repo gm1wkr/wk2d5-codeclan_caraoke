@@ -24,3 +24,7 @@ class TestSong(unittest.TestCase):
     def test_increase_song_play_count(self):
         self.song_3.increase_play_count(2)
         self.assertEqual(2, self.song_3.play_count)
+
+    def test_get_play_count(self):
+        self.song_2.increase_play_count(1)
+        self.assertEqual(1, self.song_2.get_play_count())
