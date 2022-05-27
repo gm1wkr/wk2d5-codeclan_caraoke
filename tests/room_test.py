@@ -14,12 +14,29 @@ class TestRoom(unittest.TestCase):
         self.assertEqual("Seventies", self.room_1.name)
 
     def test_room_has_entry_fee(self):
-        self.assertEqual(5, self.room_1.room_entry_fee)
-
-    def test_room_has_custom_entry_fee(self):
-        self.room_custom_entry = Room("Expensive", 20)
-        self.assertEqual(20, self.room_custom_entry.room_entry_fee)
+        self.assertEqual(2.5, self.room_1.room_entry_fee)
 
     def test_room_has_till(self):
         self.assertEqual(100, self.room_1.till)
-    
+
+    def test_does_room_have_capacity(self):
+        self.assertEqual(True, self.room_1.room_has_capacity())
+
+    def test_room_check_in_guest__ok(self):
+        # check does room have capacity for another
+        # does guest have enough money to enter
+        # take entry fee from guest
+        # put entry fee in room till
+        # add guest to room guest list
+        # is guests favourite song in room playlist.
+        pass
+
+
+
+
+    # def test_room_has_till__custom_float(self):
+    #     self.room_with_big_till = Room("Loads in Till")
+    #     self.assertEqual(100, self.room_1.till)
+    # # def test_room_has_custom_entry_fee(self):
+    # #     self.room_custom_entry = Room("Expensive")
+    # #     self.assertEqual(20, self.room_custom_entry.room_entry_fee)
