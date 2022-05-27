@@ -12,3 +12,14 @@ class TestRoom(unittest.TestCase):
 
     def test_room_has_name(self):
         self.assertEqual("Seventies", self.room_1.name)
+
+    def test_room_has_entry_fee(self):
+        self.assertEqual(5, self.room_1.room_entry_fee)
+
+    def test_room_has_custom_entry_fee(self):
+        self.room_custom_entry = Room("Expensive", 20)
+        self.assertEqual(20, self.room_custom_entry.room_entry_fee)
+
+    # def test_room_has_till(self):
+    #     self.assertEqual("Seventies", self.room_1.name)
+    
