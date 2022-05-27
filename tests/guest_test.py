@@ -23,3 +23,6 @@ class TestGuest(unittest.TestCase):
 
     def test_guest_cheer_loudly(self):
         self.assertEqual("Gie’in It Laldy", self.guest_1.cheer_loudly())
+
+    def test_guest_cheer_loudly__notEqual(self):
+        self.assertNotEqual("Spiffing, I like that song", self.guest_1.cheer_loudly())
