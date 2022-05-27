@@ -8,3 +8,6 @@ class Guest:
     def reduce_wallet(self, reduce_by):
         if self.wallet >= reduce_by:
             self.wallet -= reduce_by
+
+    def cheer_loudly(self):
+        return "Gie’in It Laldy"

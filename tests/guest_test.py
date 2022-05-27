@@ -20,3 +20,6 @@ class TestGuest(unittest.TestCase):
     
     def test_guest_has_favourite_song(self):
         self.assertEqual("Time Warp", self.guest_1.favourite_song)
+
+    def test_guest_cheer_loudly(self):
+        self.assertEqual("Gie’in It Laldy", self.guest_1.cheer_loudly())
