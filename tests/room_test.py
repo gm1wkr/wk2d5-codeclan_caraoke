@@ -20,6 +20,6 @@ class TestRoom(unittest.TestCase):
         self.room_custom_entry = Room("Expensive", 20)
         self.assertEqual(20, self.room_custom_entry.room_entry_fee)
 
-    # def test_room_has_till(self):
-    #     self.assertEqual("Seventies", self.room_1.name)
+    def test_room_has_till(self):
+        self.assertEqual(100, self.room_1.till)
     
