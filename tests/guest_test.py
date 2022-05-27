@@ -10,3 +10,6 @@ class TestGuest(unittest.TestCase):
 
     def test_guest_has_name(self):
         self.assertEqual("Will Reiker", self.guest_1.name)
+
+    def test_guest_has_wallet(self):
+        self.assertEqual(10, self.guest_1.wallet)
