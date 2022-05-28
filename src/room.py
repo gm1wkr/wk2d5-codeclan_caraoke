@@ -22,3 +22,12 @@ class Room:
 
     def add_guest_to_guest_list(self, guest):
         self.room_guest_list.append(guest)
+
+    def is_song_in_playlist(self, song_to_find):
+        for song in self.room_playlist:
+            if song.name == song_to_find.name:
+                return True
+        return False
+
+    # def room_has_guest_favourite_song(self, guest):
+    #     pass

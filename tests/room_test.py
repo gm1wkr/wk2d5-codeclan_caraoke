@@ -47,20 +47,29 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual("Will Reiker", self.room_1.room_guest_list[0].name)
 
+    # def test_room_add_song_to_playlist(self):
+    #     self.song_to_add = Song("Lucille", "BB King")
+    #     self.room_no_play_list = Room("Empty Playlist")
+    #     self.room_no_play_list.add_song_to_playlist(self.song_to_add)
+    #     self.assertEqual(1, len(self.room_no_play_list.room_playlist))
+
+    def test_room_is_song_in_playlist__Not_found(self):
+        self.assertEqual(False, self.room_1.is_song_in_playlist(self.song_1))
+
     # def test_room_has_guest_favourite_song__True(self):
     #     self.captains_mess = Room("Captains Mess")
     #     self.janeways_favourite_song = Song("Urban Spaceman", "Bonzo Dog Do Dah Band")
     #     self.guest_janeway = Guest("Captain Catherine Janeway", 10, self.janeways_favourite_song)
-    #     self.assertEqual("Urban Spaceman", self.captains_mess.has_guest_favourite_song(self.guest_janeway))
+    #     self.assertEqual("Urban Spaceman", self.captains_mess.room_has_guest_favourite_song(self.guest_janeway))
 
 
-    def test_room_check_in_guest__ok(self):
+    # def test_room_check_in_guest__ok(self):
         
         
         
         
-        # is guests favourite song in room playlist.
-        pass
+    #     # is guests favourite song in room playlist.
+    #     pass
 
 
 
