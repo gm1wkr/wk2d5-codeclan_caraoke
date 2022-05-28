@@ -19,3 +19,6 @@ class Room:
 
     def add_to_till(self, amount):
         self.till += amount
+
+    def add_guest_to_guest_list(self, guest):
+        self.room_guest_list.append(guest)

@@ -43,6 +43,10 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_to_till(self.room_1.room_entry_fee)
         self.assertEqual(102.5, self.room_1.till)
 
+    def test_room_add_guest_to_guest_list(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.assertEqual("Will Reiker", self.room_1.room_guest_list[0].name)
+
     def test_room_check_in_guest__ok(self):
         # check does room have capacity for another
         # take entry fee from guest
