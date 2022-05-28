@@ -35,11 +35,16 @@ class TestRoom(unittest.TestCase):
         self.guest_no_money = Guest("Tom Paris", 2, self.song_1)
         self.assertEqual(False, self.room_1.guest_has_entry_fee(self.guest_no_money))
 
+    def test_take_entry_fee_from_guest(self):
+        self.room_1.take_entry_fee_from_guest(self.guest_1)
+        self.assertEqual(7.5, self.guest_1.wallet)
 
+    def test_room_add_to_till(self):
+        self.room_1.add_to_till(self.room_1.room_entry_fee)
+        self.assertEqual(102.5, self.room_1.till)
 
     def test_room_check_in_guest__ok(self):
         # check does room have capacity for another
-        # does guest have enough money to enter
         # take entry fee from guest
         # put entry fee in room till
         # add guest to room guest list

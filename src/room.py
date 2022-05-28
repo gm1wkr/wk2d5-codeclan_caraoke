@@ -12,3 +12,10 @@ class Room:
 
     def guest_has_entry_fee(self, guest):
         return guest.wallet > self.room_entry_fee
+
+    def take_entry_fee_from_guest(self, guest):
+        if self.guest_has_entry_fee:
+            guest.wallet -= self.room_entry_fee
+
+    def add_to_till(self, amount):
+        self.till += amount
