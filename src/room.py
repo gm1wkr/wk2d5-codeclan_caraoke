@@ -20,6 +20,10 @@ class Room:
     def add_to_till(self, amount):
         self.till += amount
 
+    def is_guest_in_room(self, guest):
+        if guest in self.room_guest_list:
+            return True
+
     def add_guest_to_guest_list(self, guest):
         self.room_guest_list.append(guest)
 
@@ -35,5 +39,10 @@ class Room:
     def add_song_to_playlist(self, song_to_add):
         self.room_playlist.append(song_to_add)
 
-    # def room_has_guest_favourite_song(self, guest):
-    #     pass
+    def room_has_guest_favourite_song(self, guest):
+        for song in self.room_playlist:
+            if song.name == guest.favourite_song:
+                return guest.cheer_loudly()
+        return False
+        # return self.is_song_in_playlist(guest.favourite_song.name)
+        # Why does this not work?  

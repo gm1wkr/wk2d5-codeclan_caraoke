@@ -47,6 +47,10 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual("Will Reiker", self.room_1.room_guest_list[0].name)
 
+    def test_room_is_guest_in_room__True(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.assertEqual(True, self.room_1.is_guest_in_room(self.guest_1))
+
     def test_room_is_song_in_playlist__Not_found(self):
         self.assertEqual(False, self.room_1.is_song_in_playlist(self.song_1))
     
@@ -55,30 +59,36 @@ class TestRoom(unittest.TestCase):
         self.room_no_play_list = Room("Empty Playlist")
         self.room_no_play_list.add_song_to_playlist(self.song_to_add)
         self.assertEqual(1, self.room_no_play_list.number_of_songs_in_playlist())
-        self.assertEqual(False, self.room_1.is_song_in_playlist(self.song_1))
 
 
-    # def test_room_has_guest_favourite_song__True(self):
-    #     self.captains_mess = Room("Captains Mess")
-    #     self.janeways_favourite_song = Song("Urban Spaceman", "Bonzo Dog Do Dah Band")
-    #     self.guest_janeway = Guest("Captain Catherine Janeway", 10, self.janeways_favourite_song)
-    #     self.assertEqual("Urban Spaceman", self.captains_mess.room_has_guest_favourite_song(self.guest_janeway))
-
+    def test_room_has_guest_favourite_song__False(self):
+        self.captains_mess = Room("Captains Mess")
+        self.janeways_favourite_song = Song("Urban Spaceman", "Bonzo Dog Do Dah Band")
+        self.guest_janeway = Guest("Captain Catherine Janeway", 10, self.janeways_favourite_song)
+        # self.captains_mess.add_song_to_playlist(self.janeways_favourite_song)
+        self.assertEqual(False, self.captains_mess.room_has_guest_favourite_song(self.guest_janeway))
+    
+    def test_room_has_guest_favourite_song__True(self):
+        self.captains_mess = Room("Captains Mess")
+        self.janeways_favourite_song = Song("Urban Spaceman", "Bonzo Dog Do Dah Band")
+        self.guest_janeway = Guest("Captain Catherine Janeway", 10, self.janeways_favourite_song)
+        self.captains_mess.add_song_to_playlist(self.janeways_favourite_song)
+        self.assertEqual('Gie’in It Laldy', self.captains_mess.room_has_guest_favourite_song(self.guest_janeway))
 
     # def test_room_check_in_guest__ok(self):
-        
-        
-        
-        
-    #     # is guests favourite song in room playlist.
-    #     pass
+    #     self.ten_forward = Room("Ten Forward")
+    #     self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
+    #     self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
+    #     self.ten_forward.take_entry_fee_from_guest(self.guest_warf)
+    #     self.ten_forward.add_to_till(self.ten_forward.room_entry_fee)
+    #     self.ten_forward.add_guest_to_guest_list(self.guest_warf)
+
+    #     # room capacity?
+    #     self.assertEqual(True, self.ten_forward.room_has_capacity())
+    #     self.assertEqual(True, self.ten_forward.guest_has_entry_fee(self.guest_warf))
+    #     self.assertEqual(7.5, self.guest_warf.wallet)
+    #     self.assertEqual(102.5, self.ten_forward.till)
 
 
 
 
-    # def test_room_has_till__custom_float(self):
-    #     self.room_with_big_till = Room("Loads in Till")
-    #     self.assertEqual(100, self.room_1.till)
-    # # def test_room_has_custom_entry_fee(self):
-    # #     self.room_custom_entry = Room("Expensive")
-    # #     self.assertEqual(20, self.room_custom_entry.room_entry_fee)
