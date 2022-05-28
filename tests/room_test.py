@@ -14,7 +14,6 @@ class TestRoom(unittest.TestCase):
         self.guest_1 = Guest("Will Reiker", 10, self.song_1)
         self.guest_2 = Guest("Arthur Dent", 10, self.song_2)
         self.guest_3 = Guest("Slarty Bartfast", 10, self.song_3)
-
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.room_1.add_song_to_playlist(self.song_2)
         self.room_1.add_song_to_playlist(self.song_3)
