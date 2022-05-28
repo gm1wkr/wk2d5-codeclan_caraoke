@@ -22,10 +22,10 @@ class TestRoom(unittest.TestCase):
     def test_does_room_have_capacity(self):
         self.assertEqual(True, self.room_1.room_has_capacity())
         
-    # def test_does_room_have_capacity__False(self):
-    #     self.room_full = Room("ChokaBlock")
-    #     self.room_full.max_allowed_guest = 0
-    #     self.assertEqual(True, self.room_1.room_has_capacity())
+    def test_does_room_have_capacity__False(self):
+        self.room_full = Room("ChokaBlock")
+        self.room_full.max_allowed_guest = 0
+        self.assertEqual(True, self.room_1.room_has_capacity())
 
 
     def test_guest_has_entry_fee__true(self):
@@ -47,8 +47,12 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual("Will Reiker", self.room_1.room_guest_list[0].name)
 
-    def test_room_has_favourite_song__True(self):
-        pass
+    # def test_room_has_guest_favourite_song__True(self):
+    #     self.captains_mess = Room("Captains Mess")
+    #     self.janeways_favourite_song = Song("Urban Spaceman", "Bonzo Dog Do Dah Band")
+    #     self.guest_janeway = Guest("Captain Catherine Janeway", 10, self.janeways_favourite_song)
+    #     self.assertEqual("Urban Spaceman", self.captains_mess.has_guest_favourite_song(self.guest_janeway))
+
 
     def test_room_check_in_guest__ok(self):
         
