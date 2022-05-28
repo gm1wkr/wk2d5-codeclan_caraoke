@@ -144,8 +144,7 @@ class TestRoom(unittest.TestCase):
 
     def test_get_now_playing(self):
         # Trying to say...
-        # is now playing of type song
+        # is now playing of type Song
         # think following may be wrong despite passing??
         self.assertIs(Song, type(self.room_1.get_now_playing()))
-
 

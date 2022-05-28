@@ -7,8 +7,7 @@ class Room:
         self.till = 100
         self.max_allowed_guest = 30
         self.room_guest_list = []
-        self.room_playlist = []
-        # self.now_playing_song = random.choice(self.room_playlist)
+        self.room_playlist = [] 
 
 
     def number_guest_checked_in(self):
