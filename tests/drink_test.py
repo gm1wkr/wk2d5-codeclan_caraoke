@@ -18,3 +18,6 @@ class TestDrink(unittest.TestCase):
 
     def test_drink_has_stock_level(self):
         self.assertEqual(10, self.drink_whiskey.stock_level)
+
+    def test_get_stock_level(self):
+        self.assertEqual(10, self.drink_whiskey.stock_level)
