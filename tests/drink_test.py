@@ -21,3 +21,7 @@ class TestDrink(unittest.TestCase):
 
     def test_get_stock_level(self):
         self.assertEqual(10, self.drink_whiskey.stock_level)
+
+    def test_reduce_stock_level_by(self):
+        self.drink_whiskey.reduce_stock_level_by(2)
+        self.assertEqual(8, self.drink_whiskey.stock_level)
