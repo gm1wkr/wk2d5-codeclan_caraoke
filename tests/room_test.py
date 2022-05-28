@@ -50,6 +50,11 @@ class TestRoom(unittest.TestCase):
     def test_room_is_guest_in_room__True(self):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual(True, self.room_1.is_guest_in_room(self.guest_1))
+    
+    def test_room_is_guest_in_room__False(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.guest_abscent = Guest("Ensign Insignificant", 100, self.song_1)
+        self.assertEqual(False, self.room_1.is_guest_in_room(self.guest_abscent))
 
     def test_room_is_song_in_playlist__Not_found(self):
         self.assertEqual(False, self.room_1.is_song_in_playlist(self.song_1))

@@ -21,8 +21,7 @@ class Room:
         self.till += amount
 
     def is_guest_in_room(self, guest):
-        if guest in self.room_guest_list:
-            return True
+        return guest in self.room_guest_list
 
     def add_guest_to_guest_list(self, guest):
         self.room_guest_list.append(guest)
