@@ -29,5 +29,11 @@ class Room:
                 return True
         return False
 
+    def number_of_songs_in_playlist(self):
+        return len(self.room_playlist)
+
+    def add_song_to_playlist(self, song_to_add):
+        self.room_playlist.append(song_to_add)
+
     # def room_has_guest_favourite_song(self, guest):
     #     pass
