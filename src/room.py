@@ -7,6 +7,7 @@ class Room:
         self.room_guest_list = []
         self.room_playlist = []
 
+
     def room_has_capacity(self):
         return len(self.room_guest_list) < self.max_allowed_guest
 
@@ -16,6 +17,7 @@ class Room:
     def take_entry_fee_from_guest(self, guest):
         if self.guest_has_entry_fee:
             guest.wallet -= self.room_entry_fee
+            self.add_to_till(self.room_entry_fee)
 
     def add_to_till(self, amount):
         self.till += amount
@@ -44,3 +46,17 @@ class Room:
             if song.name == guest.favourite_song:
                 return guest.cheer_loudly()
         return False
+
+
+    def check_in_guest(self, guest):
+        if self.room_has_capacity():
+            
+            self.take_entry_fee_from_guest(guest)
+            # self.add_to_till(self.room_entry_fee)
+            self.add_guest_to_guest_list(guest)
+            # print statement so Guest is heard cheering loudly!
+            if self.room_has_guest_favourite_song(guest):
+                print(guest.cheer_loudly())
+
+
+
