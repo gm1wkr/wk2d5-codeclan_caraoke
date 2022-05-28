@@ -13,3 +13,6 @@ class TestBarTab(unittest.TestCase):
         self.guest = Guest("Basil Fawlty", 100, self.guest_fav_song)
         self.drink_1 = Drink("Whiskey", 10)
         self.bar_tab = BarTab(self.guest)
+
+    def test_tab_has_guest_name(self):
+        self.assertEqual("Basil Fawlty", self.bar_tab.guest.name)
