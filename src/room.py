@@ -24,7 +24,8 @@ class Room:
         return guest in self.room_guest_list
 
     def add_guest_to_guest_list(self, guest):
-        self.room_guest_list.append(guest)
+        if not self.is_guest_in_room(guest):
+            self.room_guest_list.append(guest)
 
     def is_song_in_playlist(self, song_to_find):
         for song in self.room_playlist:
@@ -43,5 +44,3 @@ class Room:
             if song.name == guest.favourite_song:
                 return guest.cheer_loudly()
         return False
-        # return self.is_song_in_playlist(guest.favourite_song.name)
-        # Why does this not work?  

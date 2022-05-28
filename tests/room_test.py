@@ -80,19 +80,20 @@ class TestRoom(unittest.TestCase):
         self.captains_mess.add_song_to_playlist(self.janeways_favourite_song)
         self.assertEqual('Gie’in It Laldy', self.captains_mess.room_has_guest_favourite_song(self.guest_janeway))
 
-    # def test_room_check_in_guest__ok(self):
-    #     self.ten_forward = Room("Ten Forward")
-    #     self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
-    #     self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
-    #     self.ten_forward.take_entry_fee_from_guest(self.guest_warf)
-    #     self.ten_forward.add_to_till(self.ten_forward.room_entry_fee)
-    #     self.ten_forward.add_guest_to_guest_list(self.guest_warf)
+    def test_room_check_in_guest__ok(self):
+        self.ten_forward = Room("Ten Forward")
+        self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
+        self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
+        self.ten_forward.take_entry_fee_from_guest(self.guest_warf)
+        self.ten_forward.add_to_till(self.ten_forward.room_entry_fee)
+        self.ten_forward.add_guest_to_guest_list(self.guest_warf)
+        self.ten_forward.add_song_to_playlist(self.guest_warf.favourite_song)
 
-    #     # room capacity?
-    #     self.assertEqual(True, self.ten_forward.room_has_capacity())
-    #     self.assertEqual(True, self.ten_forward.guest_has_entry_fee(self.guest_warf))
-    #     self.assertEqual(7.5, self.guest_warf.wallet)
-    #     self.assertEqual(102.5, self.ten_forward.till)
+        self.assertEqual(True, self.ten_forward.room_has_capacity())
+        self.assertEqual(True, self.ten_forward.guest_has_entry_fee(self.guest_warf))
+        self.assertEqual(7.5, self.guest_warf.wallet)
+        self.assertEqual(102.5, self.ten_forward.till)
+        self.assertEqual(True, self.ten_forward.is_guest_in_room(self.guest_warf))
 
 
 
