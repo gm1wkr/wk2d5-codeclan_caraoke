@@ -47,11 +47,14 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual("Will Reiker", self.room_1.room_guest_list[0].name)
 
+    def test_room_has_favourite_song__True(self):
+        pass
+
     def test_room_check_in_guest__ok(self):
-        # check does room have capacity for another
-        # take entry fee from guest
-        # put entry fee in room till
-        # add guest to room guest list
+        
+        
+        
+        
         # is guests favourite song in room playlist.
         pass
 
