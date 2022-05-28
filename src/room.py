@@ -1,3 +1,5 @@
+import random
+
 class Room:
     def __init__(self, name) :
         self.name = name
@@ -6,6 +8,8 @@ class Room:
         self.max_allowed_guest = 30
         self.room_guest_list = []
         self.room_playlist = []
+        # self.now_playing_song = random.choice(self.room_playlist)
+
 
     def number_guest_checked_in(self):
         return len(self.room_guest_list)
@@ -69,3 +73,8 @@ class Room:
     def checkout_guest(self, guest):
         self.room_guest_list.remove(guest)
 
+
+    def get_now_playing(self):
+        if len(self.room_playlist) > 0:
+            song = random.choice(self.room_playlist)
+            return song

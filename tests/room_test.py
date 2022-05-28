@@ -15,6 +15,10 @@ class TestRoom(unittest.TestCase):
         self.guest_2 = Guest("Arthur Dent", 10, self.song_2)
         self.guest_3 = Guest("Slarty Bartfast", 10, self.song_3)
 
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_song_to_playlist(self.song_2)
+        self.room_1.add_song_to_playlist(self.song_3)
+
     def test_room_has_name(self):
         self.assertEqual("Seventies", self.room_1.name)
 
@@ -122,9 +126,14 @@ class TestRoom(unittest.TestCase):
         self.ten_forward.check_in_guest(self.guest_1)
         self.ten_forward.check_in_guest(self.guest_2)
         self.ten_forward.check_in_guest(self.guest_3)
-        self.ten_forward.check_in_guest(self.guest_warf)
-        
+        self.ten_forward.check_in_guest(self.guest_warf)       
         self.ten_forward.checkout_guest(self.guest_warf)
         self.assertEqual(3, self.ten_forward.number_guest_checked_in())
+
+    def test_get_now_playing(self):
+        # Trying to say...
+        # is now playing of type song
+        # think following may be wrong despite passing??
+        self.assertIs(Song, type(self.room_1.get_now_playing()))
 
 
