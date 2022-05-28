@@ -115,16 +115,16 @@ class TestRoom(unittest.TestCase):
         expected_list = ['Will Reiker', 'Arthur Dent', 'Slarty Bartfast']
         self.assertEqual(expected_list, self.ten_forward.get_list_of_guest_names())
 
-    # def test_room_check_out(self):
-    #     self.ten_forward = Room("Ten Forward")
-    #     self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
-    #     self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
-    #     self.ten_forward.check_in_guest(self.guest_1)
-    #     self.ten_forward.check_in_guest(self.guest_2)
-    #     self.ten_forward.check_in_guest(self.guest_3)
-    #     self.ten_forward.check_in_guest(self.guest_warf)
+    def test_room_check_out(self):
+        self.ten_forward = Room("Ten Forward")
+        self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
+        self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
+        self.ten_forward.check_in_guest(self.guest_1)
+        self.ten_forward.check_in_guest(self.guest_2)
+        self.ten_forward.check_in_guest(self.guest_3)
+        self.ten_forward.check_in_guest(self.guest_warf)
         
-    #     self.ten_forward.checkout_guest(self.guest_warf)
-    #     self.assertEqual(3, self.ten_forward.number_guest_checked_in())
+        self.ten_forward.checkout_guest(self.guest_warf)
+        self.assertEqual(3, self.ten_forward.number_guest_checked_in())
 
 
