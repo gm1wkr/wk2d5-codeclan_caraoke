@@ -19,18 +19,23 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_playlist(self.song_2)
         self.room_1.add_song_to_playlist(self.song_3)
 
+
     def test_room_has_name(self):
         self.assertEqual("Seventies", self.room_1.name)
+
 
     def test_room_has_entry_fee(self):
         self.assertEqual(2.5, self.room_1.room_entry_fee)
 
+
     def test_room_has_till(self):
         self.assertEqual(100, self.room_1.till)
+
 
     def test_does_room_have_capacity(self):
         self.assertEqual(True, self.room_1.room_has_capacity())
         
+
     def test_does_room_have_capacity__False(self):
         self.room_full = Room("ChokaBlock")
         self.room_full.max_allowed_guest = 0
@@ -40,34 +45,42 @@ class TestRoom(unittest.TestCase):
     def test_guest_has_entry_fee__true(self):
         self.assertEqual(True, self.room_1.guest_has_entry_fee(self.guest_1))
 
+
     def test_guest_has_entry_fee__False(self):
         self.guest_no_money = Guest("Tom Paris", 2, self.song_1)
         self.assertEqual(False, self.room_1.guest_has_entry_fee(self.guest_no_money))
+
 
     def test_take_entry_fee_from_guest(self):
         self.room_1.take_entry_fee_from_guest(self.guest_1)
         self.assertEqual(7.5, self.guest_1.wallet)
 
+
     def test_room_add_to_till(self):
         self.room_1.add_to_till(self.room_1.room_entry_fee)
         self.assertEqual(102.5, self.room_1.till)
+
 
     def test_room_add_guest_to_guest_list(self):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual("Will Reiker", self.room_1.room_guest_list[0].name)
 
+
     def test_room_is_guest_in_room__True(self):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.assertEqual(True, self.room_1.is_guest_in_room(self.guest_1))
     
+
     def test_room_is_guest_in_room__False(self):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.guest_abscent = Guest("Ensign Insignificant", 100, self.song_1)
         self.assertEqual(False, self.room_1.is_guest_in_room(self.guest_abscent))
 
+
     def test_room_is_song_in_playlist__Not_found(self):
         self.assertEqual(False, self.room_1.is_song_in_playlist(self.song_1))
-    
+
+
     def test_room_add_song_to_playlist(self):
         self.song_to_add = Song("Lucille", "BB King")
         self.room_no_play_list = Room("Empty Playlist")
