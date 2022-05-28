@@ -16,3 +16,6 @@ class TestBarTab(unittest.TestCase):
 
     def test_tab_has_guest_name(self):
         self.assertEqual("Basil Fawlty", self.bar_tab.guest.name)
+
+    def test_tab_has_running_total(self):
+        self.assertEqual(4, self.bar_tab.running_total)
