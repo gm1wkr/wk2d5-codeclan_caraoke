@@ -8,7 +8,12 @@ class TestRoom(unittest.TestCase):
     def setUp(self):
         self.room_1 = Room("Seventies")
         self.song_1 = Song("Time Warp", "Richard O'Brian")
+        self.song_2 = Song("One Vision", "Queen")
+        self.song_3 = Song("Schools Out", "Alice Cooper")
+        self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
         self.guest_1 = Guest("Will Reiker", 10, self.song_1)
+        self.guest_2 = Guest("Arthur Dent", 10, self.song_2)
+        self.guest_3 = Guest("Slarty Bartfast", 10, self.song_3)
 
     def test_room_has_name(self):
         self.assertEqual("Seventies", self.room_1.name)
@@ -84,11 +89,9 @@ class TestRoom(unittest.TestCase):
         self.ten_forward = Room("Ten Forward")
         self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
         self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
-        # self.ten_forward.take_entry_fee_from_guest(self.guest_warf)
-        # self.ten_forward.add_to_till(self.ten_forward.room_entry_fee)
-        # self.ten_forward.add_guest_to_guest_list(self.guest_warf)
-        # self.ten_forward.add_song_to_playlist(self.guest_warf.favourite_song)
         self.ten_forward.check_in_guest(self.guest_warf)
+        self.ten_forward.add_song_to_playlist(self.guest_warf.favourite_song)
+
 
         self.assertEqual(True, self.ten_forward.room_has_capacity())
         self.assertEqual(True, self.ten_forward.guest_has_entry_fee(self.guest_warf))
@@ -97,5 +100,31 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(True, self.ten_forward.is_guest_in_room(self.guest_warf))
 
 
+    def test_room_number_of_guests_checked_in__add(self):
+        self.ten_forward = Room("Ten Forward")
+        self.ten_forward.check_in_guest(self.guest_1)
+        self.ten_forward.check_in_guest(self.guest_2)
+        self.ten_forward.check_in_guest(self.guest_3)
+        self.assertEqual(3, self.ten_forward.number_guest_checked_in())
+
+    def test_room_get_guest_list(self):
+        self.ten_forward = Room("Ten Forward")
+        self.ten_forward.check_in_guest(self.guest_1)
+        self.ten_forward.check_in_guest(self.guest_2)
+        self.ten_forward.check_in_guest(self.guest_3)
+        expected_list = ['Will Reiker', 'Arthur Dent', 'Slarty Bartfast']
+        self.assertEqual(expected_list, self.ten_forward.get_list_of_guest_names())
+
+    # def test_room_check_out(self):
+    #     self.ten_forward = Room("Ten Forward")
+    #     self.startrek_song = Song("Star Trekking (Across The Universe)", "The Firm")
+    #     self.guest_warf = Guest("Lt Warf", 10, self.startrek_song)
+    #     self.ten_forward.check_in_guest(self.guest_1)
+    #     self.ten_forward.check_in_guest(self.guest_2)
+    #     self.ten_forward.check_in_guest(self.guest_3)
+    #     self.ten_forward.check_in_guest(self.guest_warf)
+        
+    #     self.ten_forward.checkout_guest(self.guest_warf)
+    #     self.assertEqual(3, self.ten_forward.number_guest_checked_in())
 
 
