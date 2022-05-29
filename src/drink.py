@@ -11,6 +11,7 @@ class Drink:
     def reduce_stock_level_by(self, number_sold):
         self.stock_level -= number_sold
 
+
     def get_price(self):
         return self.price
 

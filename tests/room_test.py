@@ -3,6 +3,7 @@ import unittest
 from src.guest import Guest
 from src.song import Song
 from src.room import Room
+from src.drink import Drink
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
@@ -148,3 +149,26 @@ class TestRoom(unittest.TestCase):
         # think following may be wrong despite passing??
         self.assertIs(Song, type(self.room_1.get_now_playing()))
 
+
+    def test_guest_can_honour_tab(self):
+        self.drink_coke = Drink("Coke", 1.0)
+        self.room = Room("Oldies")
+        self.guest_fav_song = Song("Man of Constant Sorrow", "Soggy Bottom Boys")
+        self.guest = Guest("Basil Fawlty", 100, self.guest_fav_song)
+        self.room.guest_can_honour_tab(self.guest)
+
+    # Bar_tab / Drink Tests
+    # def test_sell_drink_on_tab(self):
+    #     # Is drink available stock > 0
+    #     # does guest have enough money in wallet
+    #     # take money from guest wallet
+    #     # add money to rooms till
+    #     # reduce stock level for drink
+    #     self.drink_coke = Drink("Coke", 1.0)
+    #     self.room = Room("Oldies")
+    #     self.guest_fav_song = Song("Man of Constant Sorrow", "Soggy Bottom Boys")
+    #     self.guest = Guest("Basil Fawlty", 100, self.guest_fav_song)
+    #     self.room.sell_drink_on_tab(self.guest, self.drink_coke)
+
+    #     self.assertLess(0, self.drink_coke.stock_level)
+    #     self.assertLess(self.drink_coke.get_price(), self.guest.wallet)

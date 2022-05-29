@@ -14,10 +14,6 @@ class Room:
         return len(self.room_guest_list)
 
 
-    def room_has_capacity(self):
-        return len(self.room_guest_list) < self.max_allowed_guest
-
-
     def guest_has_entry_fee(self, guest):
         return guest.wallet > self.room_entry_fee
 
@@ -30,6 +26,10 @@ class Room:
 
     def add_to_till(self, amount):
         self.till += amount
+
+
+    def room_has_capacity(self):
+        return len(self.room_guest_list) < self.max_allowed_guest
 
 
     def is_guest_in_room(self, guest):
@@ -82,6 +82,14 @@ class Room:
 
     def checkout_guest(self, guest):
         self.room_guest_list.remove(guest)
+
+
+    def sell_drink_on_tab(self, guest, drink):
+        pass
+    
+    def guest_can_honour_tab(self, guest):
+        # return guest.wallet > amount
+        pass
 
 
     def get_now_playing(self):
