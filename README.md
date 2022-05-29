@@ -17,6 +17,8 @@ The Guest wallet is checked for funds before being added to the rooms till.
 ## Advanced Extensions
 started but not completed.
 
+If a guests favourite song is present in the rooms playlist then the guest can cheer loudly and "Gie It Laldy".
+
 A bar_tab class has been started.  The bar_tab will track the running_total of money owed per guest.  
 
 A Drinks class has been created. Drinks have a name, stock level and price.  Helper methods have been created to 
